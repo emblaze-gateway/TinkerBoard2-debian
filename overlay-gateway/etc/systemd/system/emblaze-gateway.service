@@ -1,0 +1,21 @@
+[Unit]
+Description=Emblaze Gateway Service Daemon
+Requires=rabbitmq.service bluetooth-mesh.service
+After=rabbitmq.service bluetooth-mesh.service network-online.target
+Wants=network-online.target
+ConditionFirstBoot=no
+
+[Service]
+Environment="VIRTUAL_ENV=/venv" "PATH=/venv/bin"
+ExecStart=/venv/bin/emblaze_gateway -c /etc/emblaze/gateway_config.ini -d /var/lib/emblaze/gateway_dat.json --log-file /var/log/emblaze/gateway.log
+Type=notify
+KillMode=process
+NotifyAccess=main
+ProtectHome=true
+ProtectSystem=full
+Restart=on-failure
+RestartSec=10s
+WatchdogSec=10s
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,17 @@
+[Unit]
+Description=Emblaze USB autorun Daemon
+ConditionFirstBoot=no
+
+[Service]
+ExecStart=/usr/local/bin/emblaze-usb-autorun.sh
+Type=notify
+NotifyAccess=main
+LimitNPROC=1
+ProtectHome=true
+ProtectSystem=true
+Restart=on-failure
+RestartSec=1s
+WatchdogSec=180
+
+[Install]
+WantedBy=multi-user.target

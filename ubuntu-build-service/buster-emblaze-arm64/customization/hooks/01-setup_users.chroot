@@ -1,0 +1,8 @@
+#!/bin/sh
+
+echo "I: create users"
+adduser --gecos emblaze --disabled-login emblaze
+adduser --gecos linaro --disabled-login linaro
+
+echo "I: set emblaze user password"
+echo "emblaze:6Jtd3YvTRDhttAgl1" | chpasswd

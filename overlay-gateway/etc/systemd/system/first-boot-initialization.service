@@ -1,0 +1,13 @@
+[Unit]
+Description=First boot initialization
+ConditionFirstBoot=yes
+After=network-online.target NetworkManager
+Wants=network-online.target NetworkManager
+
+[Service]
+ExecStart=/usr/local/sbin/first-boot-initialize.sh
+Type=oneshot
+ProtectHome=true
+
+[Install]
+WantedBy=multi-user.target

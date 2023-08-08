@@ -31,6 +31,18 @@ while true; do
 #######################################################
 
 
+source /venv/bin/activate
+unzip /usr/local/share/gateway.zip
+rm -r /gateway
+mv /emblaze-device-emblaze-gateway-* /gateway
+cd /gateway
+pip3 install .[systemd]
+cd /
+deactivate
+
+chgrp -R gateway "gateway"
+chmod -R g+w "gateway"
+
 
 #######################################################
 echo $VERSION_NUMBER-$VERSION > /etc/version

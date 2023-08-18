@@ -268,6 +268,10 @@ cd /usr/local/sbin
 chmod ug+x first-boot-initialize.sh
 cd /
 
+cd /usr/local/bin
+chmod ug+x led_control
+cd /
+
 echo $VERSION_NUMBER-$VERSION > /etc/version
 
 #---------------Clean--------------

@@ -116,13 +116,13 @@ fi
 cmdline=$(cat /proc/cmdline)
 storage=`echo $cmdline|awk '{print match($0,"storagemedia=emmc")}'`;
 
-if [ $storage -gt 0 ]; then
-    #emmc
-    echo mmc1 > /sys/class/leds/act-led/trigger
-else
-    #sdcard
-    echo mmc0 > /sys/class/leds/act-led/trigger
-fi
+# if [ $storage -gt 0 ]; then
+    # #emmc
+    # echo mmc1 > /sys/class/leds/act-led/trigger
+# else
+    # #sdcard
+    # echo mmc0 > /sys/class/leds/act-led/trigger
+# fi
 
 # set cpu governor and frequence
 CPU_GOVERNOR=$(cat /boot/config.txt | grep 'cpu_governor' | cut -d '=' -f2)

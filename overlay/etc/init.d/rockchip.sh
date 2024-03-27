@@ -103,9 +103,9 @@ then
 
     touch /usr/local/first_boot_flag
 
-    mkdir /boot/display
-    mkdir /boot/display/hdmi
-    mkdir /boot/display/dp
+    mkdir -p /boot/display
+    mkdir -p /boot/display/hdmi
+    mkdir -p /boot/display/dp
     touch $HDMI_HOTPLUG_CONFIG
     touch $DP_HOTPLUG_CONFIG
 fi
